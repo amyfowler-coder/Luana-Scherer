@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport" />
+    <meta content="#061923" name="theme-color" />
+    <title>Nosso Universo | Scrapbook Galáctico</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div aria-hidden="true" class="stars"></div>
+    <header class="topbar"><a class="brand" href="#inicio">NOSSO UNIVERSO <span>VOL. 01</span></a><button
+            aria-label="Iniciar música" id="musicBtn">▶ Ligar walkman</button></header>
+    <main>
+        <section class="intro" id="inicio">
+            <div aria-hidden="true" class="orbit orbit-a"></div>
+            <div aria-hidden="true" class="orbit orbit-b"></div><span class="overline intro-kicker">AWESOME MIX · VOL.
+                01</span><img alt="Fita cassete Awesome Mix Vol. 1" class="cassette-image"
+                src="referencias/awesome-mix-fita.png" />
+            <div class="intro-story">
+                <h1>Uma galáxia de<br /><em>memórias</em></h1>
+                <p>Em meio a bilhões de estrelas, algumas pessoas se tornam o nosso universo inteiro. Esta é uma história contada com muisca e fotografias, entre encontros, aventuras e momentos que merecem
+                    durar para sempre.</p>
+              
+                <div class="signature">Com carinho, de uma galáxia para outra.</div>
+
+
+            </div><button class="cassette-play" id="cassettePlay">▶ TOCAR NOSSA FITA E COMEÇAR</button><span
+                class="scroll">DESLIZE PARA VIAJAR PELAS MEMÓRIAS <span>↓</span></span>
+        </section>
+        <div id="album"></div>
+        <footer><span class="overline">FIM DO REGISTRO · CONTINUA...</span>
+            <h2>Até a próxima aventura.</h2>
+            <p>As melhores histórias não precisam de um fim.</p><a href="#inicio">Voltar ao começo ↑</a>
+        </footer>
+    </main>
+    <aside aria-label="Reprodutor de música" class="player" id="player">
+        <div class="player-title">AWESOME MIX · NOSSO UNIVERSO</div>
+        <div class="player-actions"><button id="toggleMusic">▶ Reproduzir</button><button aria-label="Fechar reprodutor"
+                id="closePlayer">×</button></div>
+        <div id="youtubeMount"></div>
+        <p class="player-help">O YouTube pode exigir que você toque em Reproduzir. Se preferir, use um MP3 local na
+            pasta musica.</p>
+    </aside><audio id="localAudio" loop="" preload="none" src="musica/sua-musica.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>

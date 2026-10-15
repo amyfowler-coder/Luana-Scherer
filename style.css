@@ -1,0 +1,808 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Kalam:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+    color-scheme: dark;
+    --ink: #f7f2e9;
+    --mint: #85e4bf;
+    --gold: #e9b977
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    background: #061923;
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(1px 1px at 13% 20%, #fff 99%, transparent), radial-gradient(2px 2px at 76% 8%, #fff9 99%, transparent), radial-gradient(1px 1px at 40% 68%, #f6c787 99%, transparent), radial-gradient(1px 1px at 88% 80%, #fff 99%, transparent);
+    background-size: 173px 211px, 239px 307px, 301px 179px, 147px 293px;
+    opacity: .7;
+    animation: twinkle 7s ease-in-out infinite alternate
+}
+
+@keyframes twinkle {
+    to {
+        opacity: .35
+    }
+}
+
+main,
+.topbar,
+.player {
+    position: relative;
+    z-index: 1
+}
+
+.topbar {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 13px clamp(14px, 4vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #061923c9;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #ffffff25
+}
+
+.brand {
+    font-family: 'Space Grotesk';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    color: #fff;
+    text-decoration: none
+}
+
+.brand span {
+    color: var(--mint);
+    margin-left: 5px
+}
+
+.topbar button,
+.player button {
+    cursor: pointer;
+    border: 1px solid #a6edce99;
+    background: #1a423d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 10px 13px;
+    font-size: 12px;
+    font-weight: 700
+}
+
+.intro {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 100px 18px 50px;
+    background: linear-gradient(#07252244, #061923d0), url('referencias/galaxia-azul.avif') center/cover;
+    position: relative;
+    isolation: isolate
+}
+
+.intro:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, transparent 10%, #04151c99 90%);
+    z-index: -1
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid #b1e9c340;
+    border-radius: 50%;
+    pointer-events: none
+}
+
+.orbit-a {
+    width: min(94vw, 650px);
+    aspect-ratio: 1;
+    transform: rotate(30deg) scaleY(.5)
+}
+
+.orbit-b {
+    width: min(100vw, 750px);
+    aspect-ratio: 1;
+    transform: rotate(-35deg) scaleY(.65)
+}
+
+.notebook {
+    width: min(100%, 490px);
+    position: relative;
+    transform: rotate(-1.4deg);
+    color: #292b31;
+    padding: 38px 29px 35px 49px;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, #91a8c34d 32px, #91a8c34d 33px), #fff8e8;
+    box-shadow: 10px 14px 0 #ffffff1c, 0 24px 65px #0008;
+    clip-path: polygon(0 1%, 4% 0, 8% 1%, 14% 0, 22% 1%, 32% 0, 42% 1%, 53% 0, 65% 1%, 79% 0, 91% 1%, 100% 0, 99% 100%, 88% 99%, 77% 100%, 65% 99%, 54% 100%, 41% 99%, 29% 100%, 17% 99%, 7% 100%, 0 99%)
+}
+
+.notebook:before {
+    content: '';
+    position: absolute;
+    left: 36px;
+    top: 0;
+    bottom: 0;
+    border-left: 2px solid #ed8c9d99
+}
+
+.holes {
+    position: absolute;
+    left: 8px;
+    top: 25px;
+    bottom: 20px;
+    width: 16px;
+    background: radial-gradient(circle, #53656c 4px, transparent 5px) center top/16px 44px repeat-y
+}
+
+.overline {
+    font: 700 11px 'Space Grotesk';
+    letter-spacing: .2em
+}
+
+.notebook h1 {
+    font: 700 clamp(37px, 8vw, 65px)/1.05 'Space Grotesk';
+    margin: 22px 0;
+    color: #183c3a
+}
+
+.notebook h1 i {
+    font-family: 'Kalam';
+    font-weight: 400;
+    color: #b45e7c
+}
+
+.notebook p {
+    font: 18px/1.8 'Kalam';
+    margin: 18px 0
+}
+
+.signature {
+    font: 17px 'Kalam';
+    margin-top: 22px;
+    color: #775f68
+}
+
+.scroll {
+    font: 700 11px 'Space Grotesk';
+    letter-spacing: .16em;
+    text-align: center;
+    margin-top: 50px;
+    color: #c9ffe7
+}
+
+.scroll span {
+    display: block;
+    font-size: 30px;
+    margin-top: 8px;
+    animation: bob 2s infinite
+}
+
+@keyframes bob {
+    50% {
+        transform: translateY(8px)
+    }
+}
+
+.chapter {
+    position: relative;
+    padding: 100px max(14px, calc((100vw - 940px)/2)) 95px;
+    min-height: 1200px;
+    isolation: isolate
+}
+
+.chapter:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(180deg, #06192344 0%, #06192322 30%, #061923a8 100%), var(--bg) center top/cover fixed
+}
+
+.chapter:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--wash);
+    pointer-events: none
+}
+
+.chapter.green {
+    --bg: url('referencias/galaxy-brown.avif');
+    --wash: linear-gradient(180deg, #003d301c, #03191a85)
+}
+
+.chapter.blue {
+    --bg: url('referencias/galaxy-blue.avif');
+    --wash: linear-gradient(180deg, #0b19342b, #101b3d91)
+}
+
+.chapter.pink {
+    --bg: url('referencias/ilustracao.png');
+    --wash: linear-gradient(180deg, #261136a8, #0a1625cf)
+}
+
+.chapter.gold {
+    --bg: url('referencias/nebula-rainbow.avif');
+    --wash: linear-gradient(180deg, #44321e82, #041c1cbf)
+}
+
+.chapter-head {
+    text-align: center;
+    margin: 0 auto 60px;
+    max-width: 560px
+}
+
+.chapter-head .number {
+    font: 700 12px 'Space Grotesk';
+    letter-spacing: .25em;
+    color: #f7d19c
+}
+
+.chapter-head h2 {
+    font: 700 clamp(38px, 8vw, 70px)/1.05 'Space Grotesk';
+    margin: 14px 0;
+    text-shadow: 0 4px 18px #0009
+}
+
+.chapter-head p {
+    font: 20px/1.5 'Kalam';
+    color: #e6f5ee
+}
+
+.scraps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 12px;
+    align-items: start;
+    padding: 0 6px
+}
+
+.polaroid {
+    position: relative;
+    background: #f8f4e9;
+    color: #333;
+    padding: 10px 10px 26px;
+    margin: 0;
+    transform: rotate(var(--rotate));
+    box-shadow: 0 12px 28px #0008;
+    transition: transform .4s, opacity .7s;
+    opacity: 0
+}
+
+.polaroid.visible {
+    opacity: 1
+}
+
+.polaroid:hover {
+    transform: rotate(0) scale(1.035);
+    z-index: 2
+}
+
+.polaroid img {
+    width: 100%;
+    aspect-ratio: var(--ratio);
+    object-fit: cover;
+    display: block;
+    background: #254c57
+}
+
+.polaroid figcaption {
+    text-align: center;
+    font: 14px 'Kalam';
+    padding-top: 9px
+}
+
+.tape {
+    position: absolute;
+    top: -13px;
+    left: 35%;
+    width: 72px;
+    height: 25px;
+    background: #d1bca6c4;
+    transform: rotate(-8deg);
+    clip-path: polygon(0 6%, 100% 0, 97% 100%, 3% 92%)
+}
+
+.scraps .polaroid:nth-child(7n + 3) {
+    margin-top: 45px
+}
+
+.scraps .polaroid:nth-child(7n + 6) {
+    margin-top: -20px
+}
+
+.quote {
+    grid-column: 1/-1;
+    max-width: 440px;
+    justify-self: center;
+    padding: 20px 25px;
+    color: #2d3340;
+    background: #fff4d8;
+    transform: rotate(-2deg);
+    font: 24px/1.4 'Kalam';
+    text-align: center;
+    box-shadow: 4px 8px 0 #0004
+}
+
+.doodle {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    pointer-events: none;
+    opacity: .85
+}
+
+.doodle svg {
+    width: 100%;
+    height: 100%;
+    stroke: #e9c88c;
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round
+}
+
+.doodle.one {
+    top: 220px;
+    right: 3%
+}
+
+.doodle.two {
+    top: 50%;
+    left: 2%;
+    transform: rotate(30deg)
+}
+
+.chapter-end {
+    text-align: center;
+    margin: 80px 0 0;
+    font: 700 12px 'Space Grotesk';
+    letter-spacing: .2em;
+    color: #d8e8e3
+}
+
+footer {
+    text-align: center;
+    padding: 100px 20px 140px;
+    background: linear-gradient(#061923, #102d31);
+    min-height: 400px
+}
+
+footer h2 {
+    font: 700 clamp(30px, 7vw, 56px) 'Space Grotesk';
+    margin: 22px 0
+}
+
+footer p {
+    font: 20px 'Kalam'
+}
+
+footer a {
+    color: #a3eacb
+}
+
+.player {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    width: min(380px, calc(100vw - 32px));
+    background: #10242af5;
+    border: 1px solid #89b5aa66;
+    box-shadow: 0 12px 30px #0009;
+    border-radius: 16px;
+    padding: 14px;
+    z-index: 20;
+    display: none
+}
+
+.player.open {
+    display: block
+}
+
+.player-title {
+    font: 700 12px 'Space Grotesk';
+    letter-spacing: .13em;
+    margin-bottom: 10px
+}
+
+.player-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px
+}
+
+.player iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: 0;
+    border-radius: 9px
+}
+
+.player-help {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #bed5d1;
+    margin-bottom: 0
+}
+
+@media(min-width:760px) {
+    .scraps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 35px 20px
+    }
+
+    .quote {
+        grid-column: 1/-1
+    }
+
+    .chapter {
+        padding-top: 120px
+    }
+
+    .polaroid {
+        padding: 13px 13px 30px
+    }
+}
+
+@media(max-width:520px) {
+    .chapter {
+        padding-top: 85px;
+        background-attachment: scroll
+    }
+
+    .chapter:before {
+        background-attachment: scroll
+    }
+
+    .scraps {
+        gap: 26px 9px
+    }
+
+    .polaroid {
+        padding: 7px 7px 19px
+    }
+
+    .polaroid figcaption {
+        font-size: 12px
+    }
+
+    .tape {
+        width: 46px;
+        height: 18px;
+        top: -9px
+    }
+
+    .doodle {
+        width: 55px;
+        height: 55px
+    }
+
+    .notebook {
+        padding-right: 20px
+    }
+
+    .topbar {
+        padding: 12px
+    }
+
+    .brand {
+        font-size: 10px
+    }
+
+    .topbar button {
+        font-size: 11px;
+        padding: 8px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *:before,
+    *:after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important
+    }
+
+    .polaroid {
+        opacity: 1
+    }
+}
+
+.cassette-stage {
+    position: relative;
+    min-height: 100svh;
+    padding: 110px 20px 85px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #061923bb, #092936bb), url('referencias/galaxia-azul.jpg') center/cover
+}
+
+.cassette-stage h2 {
+    font: 700 clamp(30px, 7vw, 56px) 'Space Grotesk';
+    margin: 15px 0
+}
+
+.cassette-stage>p {
+    font: 20px 'Kalam';
+    margin: 8px 0 30px
+}
+
+.cassette {
+    width: min(86vw, 480px);
+    aspect-ratio: 1.55;
+    position: relative;
+    background: linear-gradient(145deg, #31363b, #0f141a 60%, #40444b);
+    border: 7px solid #6c7178;
+    border-radius: 17px 17px 30px 30px;
+    box-shadow: 0 25px 60px #000b, inset 0 0 0 4px #111, inset 0 0 15px #000;
+    transform: rotate(-5deg);
+    padding: 7% 8%;
+    margin: 20px 0 35px
+}
+
+.cassette:before,
+.cassette:after {
+    content: '';
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: #06090d;
+    border: 3px solid #9a9b9a;
+    border-radius: 50%;
+    bottom: 10px
+}
+
+.cassette:before {
+    left: 17px
+}
+
+.cassette:after {
+    right: 17px
+}
+
+.cassette-label {
+    height: 43%;
+    background: linear-gradient(#d3b87e 0 25%, #a8464a 25% 39%, #d3b87e 39% 100%);
+    color: #25252a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    border-radius: 4px;
+    padding: 5px;
+    font-family: 'Space Grotesk';
+    box-shadow: 0 2px 4px #0009
+}
+
+.cassette-label small {
+    font-size: clamp(8px, 2vw, 12px);
+    font-weight: 700;
+    letter-spacing: .16em
+}
+
+.cassette-label strong {
+    font-size: clamp(17px, 5vw, 28px)
+}
+
+.cassette-label span {
+    font-size: clamp(7px, 1.7vw, 10px);
+    letter-spacing: .16em
+}
+
+.cassette-window {
+    height: 42%;
+    width: 75%;
+    margin: 5% auto 0;
+    border: 6px solid #6b747a;
+    border-radius: 35px;
+    background: linear-gradient(120deg, #111, #2e3035);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    overflow: hidden
+}
+
+.reel {
+    width: 34%;
+    aspect-ratio: 1;
+    border: 8px dotted #ddd9c9;
+    border-radius: 50%;
+    background: radial-gradient(circle, #18191c 0 20%, #e9e0c7 21% 29%, #2c2d31 30%);
+    z-index: 1
+}
+
+.cassette.playing .reel {
+    animation: spin 2s linear infinite
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.tape-line {
+    position: absolute;
+    inset: 25% 13%;
+    border-top: 5px solid #5c332b;
+    border-bottom: 5px solid #5c332b
+}
+
+.cassette-bottom {
+    position: absolute;
+    bottom: 4%;
+    left: 40%;
+    width: 20%;
+    display: flex;
+    justify-content: space-between
+}
+
+.cassette-bottom span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #a9aaa6
+}
+
+.cassette-play {
+    border: 1px solid #eacb8e;
+    background: #e7bc74;
+    color: #172229;
+    font: 700 13px 'Space Grotesk';
+    letter-spacing: .08em;
+    padding: 16px 23px;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 6px 30px #e7bc7440
+}
+
+.cassette-stage .cassette-note {
+    font: 12px/1.5 'DM Sans';
+    max-width: 330px;
+    color: #c2d9db;
+    margin-top: 20px
+}
+
+.player {
+    z-index: 40
+}
+
+@media(max-width:520px) {
+    .cassette {
+        border-width: 5px
+    }
+
+    .cassette-window {
+        border-width: 4px
+    }
+
+    .reel {
+        border-width: 5px
+    }
+}
+
+/* Abertura com a fita PNG original, substituindo a folha de caderno */
+.intro {
+    gap: 14px;
+    min-height: 100svh;
+    padding: 100px 20px 55px;
+    background: linear-gradient(180deg, #06192377, #061923d9), url('referencias/ilustra.jpg') center/cover
+}
+
+.intro-kicker {
+    color: #f6d6a3;
+    text-shadow: 0 2px 10px #000;
+    z-index: 1
+}
+
+.cassette-image {
+    display: block;
+    width: min(84vw, 420px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 25px #000b);
+    transform: rotate(-3deg);
+    position: relative;
+    z-index: 1;
+    animation: floatTape 5s ease-in-out infinite
+}
+
+@keyframes floatTape {
+    50% {
+        transform: rotate(0deg) translateY(-9px)
+    }
+}
+
+.intro-story {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: min(100%, 590px);
+    padding: 12px 12px 5px;
+    background: linear-gradient(90deg, transparent, #0619239e, transparent)
+}
+
+.intro-story h1 {
+    font: 700 clamp(25px, 5.8vw, 43px)/1.18 'Space Grotesk', sans-serif;
+    margin: 8px 0 15px;
+    color: #fff
+}
+
+.intro-story h1 em {
+    font-style: normal;
+    color: #f5c98a
+}
+
+.intro-story p {
+    font: clamp(16px, 3.8vw, 20px)/1.5 'Kalam', sans-serif;
+    color: #e7f8f1;
+    margin: 0 auto 12px
+}
+
+.intro .cassette-play {
+    position: relative;
+    z-index: 2;
+    margin: 8px auto 0
+}
+
+.intro .scroll {
+    margin-top: 12px
+}
+
+@media(max-width:520px) {
+    .intro {
+        padding-top: 86px;
+        gap: 10px
+    }
+
+    .cassette-image {
+        width: min(88vw, 360px)
+    }
+
+    .intro-story {
+        padding: 6px
+    }
+
+    .intro-story h1 {
+        font-size: clamp(23px, 6.1vw, 31px)
+    }
+
+    .intro-story p {
+        font-size: 16px
+    }
+
+    .intro .cassette-play {
+        font-size: 11px;
+        padding: 14px 16px
+    }
+}
